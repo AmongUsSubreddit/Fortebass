@@ -1,0 +1,87 @@
+{
+  "core": {
+    "prefixes": [
+      "!"
+    ]
+  },
+  "communityManagerRole": 772520945213636609,
+  "modRole": 758348593060511744,
+  "adminRole": 755197336631771240,
+  "mutedRole": 757464526936342538,
+  "logChannel": 756113360998629387,
+  "serverID": 755193701885804584,
+  "homeChannel": 797978531459760138,
+  "warningDaysThreshold": 30,
+  "inviteExclusion": "amongusreddit",
+  "autoMuteThresholds": {
+    "2": 6,
+    "4": 12,
+    "6": 24
+  },
+  "massMentionThreshold": 5,
+  "inviteTierRequirement": 2,
+
+  "emoji": {
+    "noPermissions": "<:RedSussing:778551196503375874>",
+    "warning": "<:Task:756704107162501120>",
+    "error": "<:RedSussing:778551196503375874>",
+    "deleted": "<:Task:756704107162501120>",
+    "information": "<:Task:756704107162501120>",
+    "muted": "<:SHHHH:756703641062080534>",
+    "denied": "<:RedSussing:778551196503375874>",
+    "banned": "<:GreenDead:778520884696186960>",
+    "unbanned": "<:GreenCrewmate:806109455598616606>",
+    "ejected": "<a:YellowEjected:808564159683362827>",
+    "success": "<:ChuuGreenThumbsUp:778547627251466290>",
+    "loading": "<:SHHHH:756703641062080534>",
+    "connected": "<:SHHHH:756703641062080534>",
+    "locked": "<:RedSussing:778551196503375874>"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  },
+  "wordLists": {
+    "rudeWords.txt": {
+      "wholeWord": true,
+      "reason": "Use of restricted word(s)"
+    },
+    "everyone.txt": {
+      "wholeWord": false,
+      "reason": "Attempted to ping everyone/here"
+    },
+    "naughtyURLs.txt": {
+      "wholeWord": false,
+      "reason": "Sent malicious URL(s)"
+    }
+  },
+  "massEmojiThreshold": 6,
+  "lockdownEnabledChannels": [
+    779326620246605854,
+    780756254078533642,
+    764174839946149958,
+    776276961239760896,
+    756348775504805938,
+    755942840579653723,
+    768942878801920071,
+    755861585049944226,
+    757694598859587644,
+    788992537578045490,
+    806710583764189234,
+    779924589689962536,
+    779924861442588702,
+    800971274422976572,
+    757736671021105152,
+    763019609019514890,
+    755745138067636304,
+    764175617502871612,
+    764176354450473021,
+    762158378356310016,
+    806007984999890994,
+    792146008787517460,
+    818575838957535242,
+    818580348832055356,
+	821526994784354354
+  ]
+
+}
