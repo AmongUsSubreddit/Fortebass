@@ -147,35 +147,6 @@ namespace Fortebass
                 Intents = DiscordIntents.All
             });
 
-            async Task OnReaction(DiscordClient client, MessageReactionAddEventArgs e)
-            {
-                if (e.Emoji.Id != cfgjson.HeartosoftId || e.Channel.IsPrivate || e.Guild.Id != cfgjson.ServerID)
-                    return;
-
-                bool handled = false;
-
-                DiscordMessage targetMessage = await e.Channel.GetMessageAsync(e.Message.Id);
-
-                DiscordEmoji noHeartosoft = await e.Guild.GetEmojiAsync(cfgjson.NoHeartosoftId);
-
-                if (targetMessage.Author.Id == e.User.Id)
-                {
-                    await targetMessage.DeleteReactionAsync(e.Emoji, e.User);
-                    handled = true;
-                }
-
-                foreach (string word in cfgjson.RestrictedHeartosoftPhrases)
-                {
-                    if (targetMessage.Content.ToLower().Contains(word))
-                    {
-                        if (!handled)
-                            await targetMessage.DeleteReactionAsync(e.Emoji, e.User);
-
-                        await targetMessage.CreateReactionAsync(noHeartosoft);
-                        return;
-                    }
-                }
-            }
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             async Task OnReady(DiscordClient client, ReadyEventArgs e)
@@ -184,6 +155,7 @@ namespace Fortebass
                 logChannel = await discord.GetChannelAsync(cfgjson.LogChannel);
                 Mutes.CheckMutesAsync();
                 ModCmds.CheckBansAsync();
+                ModCmds.CheckRemindersAsync();
 
                 string commitHash = "aaaaaaa";
                 string commitMessage = "N/A";
@@ -438,9 +410,10 @@ namespace Fortebass
 
             while (true)
             {
-                await Task.Delay(60000);
+                await Task.Delay(10000);
                 Mutes.CheckMutesAsync();
                 ModCmds.CheckBansAsync();
+                ModCmds.CheckRemindersAsync();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
             }
