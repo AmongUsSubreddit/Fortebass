@@ -610,6 +610,7 @@ namespace Fortebass.Modules
             else if (t < (DateTime.Now + TimeSpan.FromSeconds(59)))
             {
                 await ctx.RespondAsync($"{Program.cfgjson.Emoji.Error} Time must be at least a minute in the future!");
+                return;
             }
 
             var reminderObject = new Reminder()
@@ -623,6 +624,7 @@ namespace Fortebass.Modules
             };
 
             await Program.db.ListRightPushAsync("reminders", JsonConvert.SerializeObject(reminderObject));
+            await ctx.RespondAsync($"{Program.cfgjson.Emoji.Success} I'll try my best to remind you about that at: `{t}` (In roughly **{Warnings.TimeToPrettyFormat(t.Subtract(ctx.Message.Timestamp.DateTime), false)}**)");
         }
 
         public static async Task<bool> CheckRemindersAsync(bool includeRemutes = false)
